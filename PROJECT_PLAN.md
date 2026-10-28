@@ -159,20 +159,4 @@ trace_events 为服务端实际事件列表，每项包含 event_id、step、sta
 4. 前端三栏（第 3 天）：接真实聊天 API，呈现对话、实际轨迹、订单/政策卡和工单；按下方演示脚本验证，测试重置、身份切换、错误空态与窄屏。
 5. 评测面板（第 3–4 天）：完成共用评测脚本、后台任务和 JSON 报告，页面跑 E01–E15；验证进度、重复点击、失败明细、真实复盘对比和离线/真实模型标签；完成产品判断、README 和依赖锁定。
 
-### 7.2 约 90 秒演示脚本
-
-默认身份 buyer-b，演示日期固定为 2026-10-27，输入按顺序执行：
-
-1. “七天无理由从哪天算？”：P01 引用、签收次日口径，右侧政策卡与实际检索分数对应。
-2. “我想退货”：缺订单号，先追问；轨迹显示缺参数，不能假称低置信度。
-3. “ORD-1004 我要退款”：授权查询 1280 元、R1、P12 固定规则引用、真实模拟工单，不承诺退款。
-4. “你们再这样我投诉”：当前文本触发 R3，显示新的投诉事项工单，不因上一条已转人工而跳过。
-5. 点击跑评测：默认跑离线 15 条，与聊天状态隔离，显示实际进度和结果；展开已存在的真实失败复盘。真实模型运行时间不保证 90 秒内结束，可提前执行并展示明确标记的最近报告，不能把旧报告假称为本次结果。
-
-### 7.3 最终作品集材料
-
-提供本地启动方式及可交互页面；如需公开链接，在功能验收后单独配置部署，本轮不默认发布。另提供 90 秒录屏或 GIF、一页产品判断说明、实际评测结果截图和真实修复前后对比。首页展示方式、报告来源和已知局限必须一致。
-
-预期命令：`python -m pip install -r requirements.txt`；`python -m uvicorn aftersales.main:app --app-dir src --reload`；`python -m pytest`；`python -m evals.run --mode offline`；`python -m evals.run --mode live`。实现阶段必须实际验证，目前对应程序尚未创建。
-
 技术参考：FastAPI 官方测试文档 https://fastapi.tiangolo.com/tutorial/testing/；scikit-learn TF-IDF 参数文档 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html 。这些参考仅用于工具能力，政策和验收均为本项目约定。
