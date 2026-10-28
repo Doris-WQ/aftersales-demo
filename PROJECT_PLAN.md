@@ -159,4 +159,4 @@ trace_events 为服务端实际事件列表，每项包含 event_id、step、sta
 4. 前端三栏（第 3 天）：接真实聊天 API，呈现对话、实际轨迹、订单/政策卡和工单；按下方演示脚本验证，测试重置、身份切换、错误空态与窄屏。
 5. 评测面板（第 3–4 天）：完成共用评测脚本、后台任务和 JSON 报告，页面跑 E01–E15；验证进度、重复点击、失败明细、真实复盘对比和离线/真实模型标签；完成产品判断、README 和依赖锁定。
 
-技术参考：FastAPI 官方测试文档 https://fastapi.tiangolo.com/tutorial/testing/；scikit-learn TF-IDF 参数文档 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html 。这些参考仅用于工具能力，政策和验收均为本项目约定。
+技术参考：FastAPI 官方测试文档 https://fastapi.tiangolo.com/tutorial/testing TF-IDF 参数文档 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html 。这些参考仅用于工具能力，政策和验收均为本项目约定。
