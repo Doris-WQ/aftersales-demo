@@ -1,0 +1,8 @@
+{
+  "case": "service_disconnect",
+  "connection": "服务暂不可用",
+  "inputDisabled": true,
+  "noFabricatedEvents": true,
+  "noOrderCard": true,
+  "reconnectVisible": true
+}

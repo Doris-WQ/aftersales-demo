@@ -1,0 +1,103 @@
+{
+  "batch_id": "523a0286b5df4bb3b1100eec96d897bf",
+  "started_at": "2026-10-28T14:02:36.416275+08:00",
+  "status": "completed",
+  "model": "openai/ernie-5.1",
+  "transport": "litellm",
+  "rounds": [
+    {
+      "round": 1,
+      "run_id": "073e89884c8c42f8a83ba6e3d58fe16d",
+      "report": "evaluations/073e89884c8c42f8a83ba6e3d58fe16d.json",
+      "status": "completed",
+      "started_at": "2026-10-28T14:02:36.420263+08:00",
+      "finished_at": "2026-10-28T14:03:28.463900+08:00",
+      "elapsed_seconds": 52.043,
+      "passed": 15,
+      "total": 15,
+      "execution_errors": 0,
+      "verified_model_generations": 4,
+      "generation_duration_ms": [
+        16474.965,
+        14288.633,
+        9919.907,
+        8045.521
+      ],
+      "failures": [],
+      "fingerprints": {
+        "code": "fb444a75c05550845243197634c7cae26a34a86b401d7a9add99990164f55e6b",
+        "policy": "d1341e13d7d25991225ed84a31256db8a41bb652b05180e0c7616e33c74818d0",
+        "configuration": "9b461d2f3fd60a4ca0a5229749ba0bf83e73af6c640c044b2b984bcb4db73729"
+      }
+    },
+    {
+      "round": 2,
+      "run_id": "91d5da1243ee4af589f09d0642400527",
+      "report": "evaluations/91d5da1243ee4af589f09d0642400527.json",
+      "status": "completed",
+      "started_at": "2026-10-28T14:03:28.466901+08:00",
+      "finished_at": "2026-10-28T14:04:10.205681+08:00",
+      "elapsed_seconds": 41.739,
+      "passed": 15,
+      "total": 15,
+      "execution_errors": 0,
+      "verified_model_generations": 4,
+      "generation_duration_ms": [
+        8759.036,
+        12866.744,
+        9228.575,
+        10700.236
+      ],
+      "failures": [],
+      "fingerprints": {
+        "code": "fb444a75c05550845243197634c7cae26a34a86b401d7a9add99990164f55e6b",
+        "policy": "d1341e13d7d25991225ed84a31256db8a41bb652b05180e0c7616e33c74818d0",
+        "configuration": "9b461d2f3fd60a4ca0a5229749ba0bf83e73af6c640c044b2b984bcb4db73729"
+      }
+    },
+    {
+      "round": 3,
+      "run_id": "09a2aeb580c14e1198466fb4edbe3a8d",
+      "report": "evaluations/09a2aeb580c14e1198466fb4edbe3a8d.json",
+      "status": "completed",
+      "started_at": "2026-10-28T14:04:10.209449+08:00",
+      "finished_at": "2026-10-28T14:04:52.926638+08:00",
+      "elapsed_seconds": 42.716,
+      "passed": 15,
+      "total": 15,
+      "execution_errors": 0,
+      "verified_model_generations": 4,
+      "generation_duration_ms": [
+        12774.649,
+        9917.568,
+        8746.563,
+        11091.061
+      ],
+      "failures": [],
+      "fingerprints": {
+        "code": "fb444a75c05550845243197634c7cae26a34a86b401d7a9add99990164f55e6b",
+        "policy": "d1341e13d7d25991225ed84a31256db8a41bb652b05180e0c7616e33c74818d0",
+        "configuration": "9b461d2f3fd60a4ca0a5229749ba0bf83e73af6c640c044b2b984bcb4db73729"
+      }
+    }
+  ],
+  "settings": {
+    "request_timeout_seconds": 30,
+    "outer_timeout_seconds": 35,
+    "maximum_attempts_per_generation": 2,
+    "execution": "sequential, no parameter changes, no extra reruns"
+  },
+  "finished_at": "2026-10-28T14:04:52.930694+08:00",
+  "passed": 45,
+  "total": 45,
+  "execution_errors": 0,
+  "verified_model_generations": 12,
+  "same_fingerprints": true,
+  "generation_latency_seconds": {
+    "count": 12,
+    "median": 10.31,
+    "p95_nearest_rank": 16.475,
+    "maximum": 16.475
+  },
+  "measurement_note": "生成事件耗时包含适配器重试与证据解析。transport_error 无法区分网络故障与超时；未记录底层重试次数。非生产稳定性保证。"
+}

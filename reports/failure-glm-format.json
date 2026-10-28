@@ -1,0 +1,18 @@
+{
+  "id": "F-GLM-FORMAT-001",
+  "status": "recorded_output_regression_verified_live_acceptance_pending",
+  "failure_type": "execution_error",
+  "input": "七天无理由是从哪天开始算？",
+  "model": "zai/glm-4.7-flash",
+  "observed_in": "独立 E01 真实模型输出重放；只捕获 content，未读取思考内容",
+  "before": {
+    "finish_reason": "stop",
+    "content": "{\"answer\":[{\"policy_ids\":[\"P01\"],\"evidence_quotes\":[\"签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。\"]}]}",
+    "outcome": "litellm_response_invalid，拒绝输出业务答案"
+  },
+  "root_cause": "模型添加了不符合最外层契约的 answer 单元素列表包装。",
+  "fix": "只展开已观察到的精确包装结构，内部字段、政策来源、必要约束和原文引用继续严格校验。",
+  "verification": "test_observed_glm_wrapper_is_normalized_without_relaxing_inner_contract：合法记录可重放，额外字段仍拒绝；不把单元回放当成真实模型通过。",
+  "latest_live_report": "evaluations/b87e1450271541a996e0425a2a375493.json",
+  "latest_live_note": "最终重跑仍有供应商繁忙/速率限制与调用异常，11/15，尚未验收通过。"
+}

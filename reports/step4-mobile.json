@@ -1,0 +1,25 @@
+{
+  "case": "mobile_390px",
+  "emptyAfterReset": true,
+  "overflow": false,
+  "panels": [
+    {
+      "name": "对话窗口",
+      "top": 287.1875,
+      "width": 351
+    },
+    {
+      "name": "决策轨迹",
+      "top": 923.1875,
+      "width": 351
+    },
+    {
+      "name": "订单与政策",
+      "top": 1311.015625,
+      "width": 351
+    }
+  ],
+  "scrollWidth": 375,
+  "width": 375,
+  "workspaceDirection": "column"
+}

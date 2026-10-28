@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: aftersales-agent-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: AGENT_MODE
+        value: live
+      - key: QIANFAN_API_KEY
+        sync: false
+      - key: DEMO_ACCESS_USERNAME
+        value: demo
+      - key: DEMO_ACCESS_PASSWORD
+        sync: false

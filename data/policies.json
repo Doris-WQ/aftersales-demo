@@ -1,0 +1,14 @@
+[
+  {"id":"P01","title":"七天无理由退货","content":"签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。","applicability":"非定制、非贴身类服饰","version":"demo-v1","retrieval_aliases":["无理由退货时间起点","七日退货期限"]},
+  {"id":"P02","title":"吊牌与包装要求","content":"吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。","applicability":"退货商品状态核验；限制针对无理由退货","version":"demo-v1","retrieval_aliases":["吊牌拆除","水洗标和穿着痕迹"]},
+  {"id":"P03","title":"退货运费承担","content":"无理由退货由买家承担运费；质量问题退货由卖家承担运费。","applicability":"需区分退货原因","version":"demo-v1","retrieval_aliases":["退回邮费承担方","质量问题运费"]},
+  {"id":"P04","title":"退款到账时间","content":"仓库签收退货并验货后，退款在1–3个工作日内原路退回，不承诺具体到账日期。","applicability":"所有退款","version":"demo-v1","retrieval_aliases":["退货验收后到账","原路退回时间","退款多久能到账","退款等待时长","退货款退回账户时长","验货后原路到账要几天"]},
+  {"id":"P05","title":"超过七天的处理","content":"超过7天原则上不支持无理由退货，质量问题除外，需人工判断。","applicability":"超过七天的退货申请","version":"demo-v1","retrieval_aliases":["无理由退货超期","超过一周"]},
+  {"id":"P06","title":"质量问题退货","content":"签收15天内出现开线、破洞、色差等质量问题，可退可换，运费卖家承担，需上传图片凭证。图片上传不代表核验通过，质量情况和凭证仍需核验。","applicability":"质量问题且需图片凭证","version":"demo-v1","retrieval_aliases":["衣服开线破洞","质量凭证核验"]},
+  {"id":"P07","title":"已发货未签收","content":"已发货未签收可申请拦截或拒收，拦截成功后退款；拒收运费视原因而定。不承诺拦截一定成功。","applicability":"物流状态为已发货、尚未签收","version":"demo-v1","retrieval_aliases":["在途退货","物流拦截拒收"]},
+  {"id":"P08","title":"换货规则","content":"尺码问题可申请同款同色换尺码；库存有货可换，无货则退款。实际库存需核实。","applicability":"仅限尺码问题","version":"demo-v1","retrieval_aliases":["换大一码","同款换尺码库存"]},
+  {"id":"P09","title":"贴身类商品","content":"内衣、袜类、泳装一经签收不支持无理由退货，质量问题除外。","applicability":"贴身类品类限制","version":"demo-v1","retrieval_aliases":["内衣袜子泳装退货"]},
+  {"id":"P10","title":"定制类商品","content":"定制尺码或印字商品不支持无理由退货。","applicability":"定制服饰品类限制","version":"demo-v1","retrieval_aliases":["定做尺码","衣服印字定制"]},
+  {"id":"P11","title":"优惠券与积分","content":"退款时优惠券不退，积分退回账户；部分退款按比例分摊。具体分摊基数未明确，不能据此计算实际分摊金额。","applicability":"涉及优惠订单","version":"demo-v1","retrieval_aliases":["退货优惠积分","部分退款分摊"]},
+  {"id":"P12","title":"高金额退款","content":"单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。","applicability":"退款金额超过500元","version":"demo-v1","retrieval_aliases":["大额退款人工审核","退款金额限制"]}
+]

@@ -1,0 +1,35 @@
+{
+  "appendCheck": {
+    "firstRawStillOpen": true,
+    "firstTraceId": "4ebba1cd2431469ebfd7963e8f72bdea",
+    "newestRawClosed": true,
+    "roundHeaders": [
+      "第 1 轮",
+      "第 2 轮"
+    ],
+    "rounds": 2
+  },
+  "firstTraceId": "4ebba1cd2431469ebfd7963e8f72bdea",
+  "timelineHistoryCheck": {
+    "dotShape": "50%",
+    "hasConnector": "1px",
+    "noTechnicalFieldsVisible": true,
+    "rawPanelsClosed": true,
+    "rounds": 3,
+    "selectedRound": "第 1 轮",
+    "sourcePolicy": "P01"
+  },
+  "collapsedTraceCheck": {
+    "hiddenTechnicalDetails": true,
+    "rawClosed": true,
+    "rawHasTimings": true,
+    "rawHasTraceId": true,
+    "visibleMainline": "意图\n退款\n提取订单号\nORD-1004\n金额检查\n1280 > 500\n规则\nR1 触发\n政策依据\nP12 · 规则引用\n最终动作\n转人工 · 已创建模拟工单"
+  },
+  "expandedTraceCheck": {
+    "label": "[-] 收起原始数据",
+    "rawOpen": true,
+    "timingsVisible": true,
+    "traceIdVisible": true
+  }
+}

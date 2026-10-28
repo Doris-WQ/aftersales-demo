@@ -1,0 +1,22 @@
+{
+  "chatTurns": 2,
+  "failedRows": 0,
+  "liveDisabled": true,
+  "metadata": {
+    "demo_date": "2026-10-27",
+    "fingerprints": {
+      "code": "095876aaca517709760cb57b65c2e58077b00000716380a8b640ae5aa41aa24c",
+      "configuration": "9b461d2f3fd60a4ca0a5229749ba0bf83e73af6c640c044b2b984bcb4db73729",
+      "policy": "d1341e13d7d25991225ed84a31256db8a41bb652b05180e0c7616e33c74818d0"
+    },
+    "finished_at": "2026-10-27T22:40:01.480198+08:00",
+    "mode": "offline",
+    "model": "offline-evidence-template",
+    "policy_version": "demo-v1",
+    "run_id": "fae0ea86221e48f0b855aae960b7e3df",
+    "started_at": "2026-10-27T22:40:01.233633+08:00"
+  },
+  "rows": 15,
+  "status": "15/15 通过 · 离线模板评测",
+  "traceRounds": 2
+}

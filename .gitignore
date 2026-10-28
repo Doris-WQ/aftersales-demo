@@ -1,0 +1,13 @@
+# Local Python environments and downloaded installers
+.runtime/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local configuration and test caches
+.env
+.pytest_cache/
+.ruff_cache/
+
+# Generated deployment bundles
+deployment/

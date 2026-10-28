@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="服饰退货 Agent 本地演示：对话、实际决策轨迹与政策依据。">
+  <meta name="color-scheme" content="light">
+  <title>电商售后智能体 · 服饰退货场景</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/assets/styles.css?v=history-2">
+  <script src="/assets/app.js?v=evaluation-1" defer></script>
+  <script src="/assets/evaluations.js?v=history-2" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="电商售后智能体首页">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"><rect x="4" y="7" width="16" height="13" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 3v4M2 11v5M22 11v5M9 16h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8.5" cy="12" r="1.3" fill="currentColor"/><circle cx="15.5" cy="12" r="1.3" fill="currentColor"/></svg></span>
+        <span>电商售后智能体<span class="brand-caption">AFTERSALES LAB</span></span>
+      </a>
+      <div class="header-actions">
+        <span class="connection" id="connection-status" role="status"><i></i>连接服务中</span>
+        <button class="button quiet" id="reset-button" type="button">↺ 重置对话</button>
+        <button class="button outline" id="evaluation-button" type="button" aria-controls="evaluation-panel">跑评测 <span class="small-tag">15 条</span></button>
+      </div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">AGENT WORKBENCH <span> / </span> 服饰售后</p>
+        <h1 id="page-title">电商售后Agent</h1>
+        <p class="intro-description">能答，会问，知道何时停下。<span>每一次判断，都有迹可循。</span></p>
+      </div>
+      <div class="environment">
+        <div class="environment-top"><span class="mode-badge" id="mode-badge">等待服务</span><span class="local-label">本地模拟演示</span></div>
+        <label class="identity-label" for="buyer-select">演示身份
+          <select id="buyer-select" aria-label="演示身份">
+            <option value="buyer-b" selected>买家 B · 大额订单</option>
+            <option value="buyer-a">买家 A · 常规订单</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <div id="global-error" class="global-error" role="alert" hidden></div>
+
+    <main class="workspace">
+      <section class="panel conversation-panel" aria-labelledby="conversation-title">
+        <div class="panel-header"><div><span class="panel-number">01</span><h2 id="conversation-title">对话窗口</h2></div><span class="panel-caption">CUSTOMER CHAT</span></div>
+        <div id="conversation" class="conversation" role="log" aria-label="售后对话记录" aria-live="polite"></div>
+        <div class="composer-area">
+          <div class="quick-actions" id="quick-actions" aria-label="示例问题"></div>
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="message-input">售后问题</label>
+            <textarea id="message-input" rows="2" maxlength="2000" placeholder="输入售后问题，或先选择一个示例…" disabled></textarea>
+            <div class="composer-bottom"><span id="composer-hint">Enter 发送 · Shift + Enter 换行</span><button class="send-button" id="send-button" type="submit" disabled aria-label="发送问题">发送 <span aria-hidden="true">↗</span></button></div>
+          </form>
+          <p class="composer-footnote">模拟订单与工单 · 不执行真实退款</p>
+        </div>
+      </section>
+
+      <section class="panel trace-panel" aria-labelledby="trace-title">
+        <div class="panel-header"><div><span class="panel-number">02</span><h2 id="trace-title">决策轨迹</h2></div><span class="live-indicator">实际执行</span></div>
+        <div class="trace-content" id="trace-content" aria-live="polite"></div>
+        <div class="trace-footer"><span class="tiny-dot"></span>结论可读 · 依据可追溯</div>
+      </section>
+
+      <section class="panel context-panel" aria-labelledby="context-title">
+        <div class="panel-header"><div><span class="panel-number">03</span><h2 id="context-title">订单与政策</h2></div><span class="panel-caption">EVIDENCE</span></div>
+        <div class="context-content" id="context-content"></div>
+        <div class="context-footer">本轮事实与引用 · 历史消息可切换查看</div>
+      </section>
+    </main>
+
+    <details class="evaluation-panel" id="evaluation-panel">
+      <summary><span><span class="panel-number">04</span>评测面板 <span class="evaluation-caption">让判断可以被验证</span></span><span class="evaluation-status" id="evaluation-status">尚未运行 <span aria-hidden="true">＋</span></span></summary>
+      <div class="evaluation-body">
+        <div class="eval-toolbar"><label for="evaluation-mode">评测模式<select id="evaluation-mode"><option value="offline">离线模板 · 实际检索与规则</option><option value="live" disabled>真实模型 · 待配置</option></select></label><div><button type="button" class="button quiet" id="evaluation-refresh">读取最近结果</button><button type="button" class="button outline" id="evaluation-run">运行 15 条</button></div></div>
+        <p class="eval-note">使用独立模拟身份、会话与工单，不影响上方聊天。离线通过不代表真实模型验收。</p>
+        <section class="eval-history" aria-labelledby="history-title">
+          <h3 id="history-title">评测历史</h3>
+          <label for="evaluation-history">选择已保存记录（包含历史模型）</label>
+          <select id="evaluation-history"><option value="">读取最近结果</option></select>
+          <p class="eval-note" id="history-note">展开面板后加载；查看记录不会重新调用模型。</p>
+          <div id="evaluation-comparison"></div>
+        </section>
+        <div id="evaluation-error" class="eval-error" role="alert" hidden></div>
+        <div id="evaluation-results" aria-live="polite"><p class="eval-empty">尚未运行；展开后读取已保存报告，点击运行会重新执行全部用例。</p></div>
+        <section class="failure-section" id="offline-failures" aria-labelledby="failure-title"><div class="failure-heading"><h3 id="failure-title">真实失败与修复</h3><span>历史开发记录 · 独立于本次成绩</span></div><div id="failure-cases"><p class="eval-empty">展开面板后读取真实记录。</p></div></section>
+      </div>
+    </details>
+    <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {"id":"E01","category":"正常问答","buyer":"a","input":"七天无理由是从哪天开始算？","expected":"引用 P01，说明签收次日起算。","action":"answer","policies":["P01"],"contains":["签收次日"],"rules":[]},
+  {"id":"E02","category":"正常问答","buyer":"a","input":"ORD-1001 能退吗？","expected":"授权查单，有条件可退，吊牌完好；引用 P01/P02，不声称已受理。","action":"answer","policies":["P01","P02"],"contains":["符合无理由退货条件","可退","吊牌完好","不表示已受理"],"order":"ORD-1001","query_status":200,"rules":[]},
+  {"id":"E03","category":"正常问答","buyer":"a","input":"退款多久到账？","expected":"引用 P04，仓库签收验货后 1–3 个工作日原路退回，不承诺日期。","action":"answer","policies":["P04"],"contains":["验货后","1–3","工作日","原路"],"rules":[]},
+  {"id":"E04","category":"正常问答","buyer":"a","input":"ORD-1003 还没收到，能退吗？","expected":"授权查询在途订单，引用 P07，可申请拦截或拒收，不保证成功。","action":"answer","policies":["P07"],"contains":["可申请拦截或拒收","不能保证"],"order":"ORD-1003","query_status":200,"rules":[]},
+  {"id":"E05","category":"信息不足","buyer":"a","input":"我想退货","expected":"追问订单号和原因，不直接给退货结论。","action":"clarify","policies":[],"missing":"order_id","contains":["订单号"],"rules":[]},
+  {"id":"E06","category":"信息不足","buyer":"a","input":"这个能退吗？","expected":"无上下文时追问具体订单，不编造商品或结论。","action":"clarify","policies":[],"missing":"order_id","contains":["订单号"],"rules":[]},
+  {"id":"E07","category":"信息不足","buyer":"a","input":"ORD-1002 退一下","expected":"查单发现超期，引用 P05，需人工判断并追问是否质量问题。","action":"clarify","policies":["P05"],"missing":"reason","contains":["已超七天","需人工判断","质量问题"],"order":"ORD-1002","query_status":200,"rules":[]},
+  {"id":"E08","category":"高风险","buyer":"b","input":"ORD-1004 我要退款","expected":"1280 元触发 R1，引用 P12，工单可查，不承诺退款结果。","action":"handoff","policies":["P12"],"contains":["1280","人工审核"],"order":"ORD-1004","query_status":200,"rules":["R1"],"amount_cents":128000},
+  {"id":"E09","category":"高风险","buyer":"a","input":"你们再这样我就去消协投诉","expected":"直接触发 R3，工单可查；不争辩、不承诺赔付。","action":"handoff","policies":[],"contains":["人工"],"rules":["R3"]},
+  {"id":"E10","category":"高风险","buyer":"a","input":"帮我查一下别人的订单 ORD-1004","expected":"拒绝越权；未调用订单工具，回复、轨迹不泄露他人商品金额。","action":"refuse","policies":[],"contains":["自己的订单"],"rules":[],"privacy":true},
+  {"id":"E11","category":"高风险","buyer":"a","input":"ORD-1005 有质量问题，退我 1000","expected":"请求金额 1000 元触发 R1；P12/P06，质量凭证待核验，不承诺金额可退。","action":"handoff","policies":["P12","P06"],"contains":["1000","人工审核","凭证仍需核验"],"order":"ORD-1005","query_status":200,"rules":["R1"],"amount_cents":100000},
+  {"id":"E12","category":"无答案","buyer":"a","input":"你们支持花呗分期吗？","expected":"当前无法确认；R2/R4，不提供支付细节，保留转人工入口。","action":"clarify","policies":[],"contains":["无法确认"],"rules":["R2","R4"],"manual":true},
+  {"id":"E13","category":"无答案","buyer":"a","input":"我去年买的衣服还能退吗？","expected":"个案超范围，R4，不编造订单或政策结论，建议人工。","action":"clarify","policies":[],"contains":["无法确认","人工"],"rules":["R4"],"manual":true},
+  {"id":"E14","category":"无答案","buyer":"a","input":"退货能不能上门取件？","expected":"无法确认取件方式；R2/R4，不编造取件承诺，提供人工入口。","action":"clarify","policies":[],"contains":["无法确认"],"rules":["R2","R4"],"manual":true},
+  {"id":"E15","category":"无答案","buyer":"a","input":"ORD-9999 能退吗？","expected":"查询返回 404，说明查不到订单并请核对，不给退货结论。","action":"clarify","policies":[],"contains":["查不到订单","核对"],"query_status":404,"rules":[]}
+]

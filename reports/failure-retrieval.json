@@ -1,0 +1,206 @@
+{
+  "id": "F-RETRIEVAL-001",
+  "status": "fixed_for_recorded_input",
+  "failure_category": "????",
+  "input": "退款多久到账？",
+  "expected_policy_ids": [
+    "P04"
+  ],
+  "threshold": 0.6,
+  "before": {
+    "session_id": "5990cee467264513ad13ebcb762a5de8",
+    "action": "clarify",
+    "message": "当前无法确认，请补充具体问题或订单号。",
+    "business_answer": null,
+    "policy_ids": [],
+    "retrieval_score": 0.31916828787341645,
+    "reason_code": "low_confidence",
+    "missing_fields": [
+      "question"
+    ],
+    "handoff_available": false,
+    "handoff_id": null,
+    "trace_id": "ec66174ccfd84e03a0931c8682f870f4",
+    "order": null,
+    "policy_cards": [],
+    "trace_events": [
+      {
+        "event_id": "1af6551a8849474ba4d30f771e1b55ff",
+        "step": "intent",
+        "status": "ok",
+        "summary": "识别意图与明确槽位",
+        "duration_ms": 0.026,
+        "data": {
+          "kind": "policy",
+          "order_id": null,
+          "reason": null,
+          "topic": "refund_time",
+          "ambiguous": false
+        }
+      },
+      {
+        "event_id": "b82d835401f74686b2cabfb05f22d212",
+        "step": "retrieval",
+        "status": "ok",
+        "summary": "政策库真实检索",
+        "duration_ms": 0.793,
+        "data": {
+          "query": "退款多久到账？",
+          "hits": [
+            {
+              "id": "P04",
+              "score": 0.31916828787341645,
+              "matched_field": "title"
+            },
+            {
+              "id": "P12",
+              "score": 0.12049242587654424,
+              "matched_field": "full"
+            },
+            {
+              "id": "P11",
+              "score": 0.0998797077422183,
+              "matched_field": "alias:1"
+            }
+          ],
+          "threshold": 0.6
+        }
+      },
+      {
+        "event_id": "e21d2f31be2f433ebd0ffbaa306c8ee7",
+        "step": "generation",
+        "status": "skipped",
+        "summary": "证据分数不足，未调用答案生成器",
+        "duration_ms": 0.844,
+        "data": {}
+      },
+      {
+        "event_id": "307b3e463fc54e61808d2aebfc6fb4ed",
+        "step": "action",
+        "status": "ok",
+        "summary": "当前无法确认，请补充具体问题或订单号。",
+        "duration_ms": 0.852,
+        "data": {
+          "action": "clarify",
+          "reason_code": "low_confidence"
+        }
+      }
+    ],
+    "mode": "offline",
+    "development_stage": 2
+  },
+  "after": {
+    "session_id": "09e0a61fb7634f61abcc0a999be26563",
+    "action": "answer",
+    "message": "[P04] 仓库签收退货并验货后，退款在1–3个工作日内原路退回，不承诺具体到账日期。",
+    "business_answer": "[P04] 仓库签收退货并验货后，退款在1–3个工作日内原路退回，不承诺具体到账日期。",
+    "policy_ids": [
+      "P04"
+    ],
+    "retrieval_score": 0.6527202277160047,
+    "reason_code": "evidence_answer",
+    "missing_fields": [],
+    "handoff_available": false,
+    "handoff_id": null,
+    "trace_id": "6e414e8bf2f749d6bb59bbe291d0a91f",
+    "order": null,
+    "policy_cards": [
+      {
+        "id": "P04",
+        "title": "退款到账时间",
+        "content": "仓库签收退货并验货后，退款在1–3个工作日内原路退回，不承诺具体到账日期。",
+        "applicability": "所有退款",
+        "version": "demo-v1",
+        "retrieval_aliases": [
+          "退货验收后到账",
+          "原路退回时间",
+          "退款多久能到账",
+          "退款等待时长",
+          "退货款退回账户时长",
+          "验货后原路到账要几天"
+        ]
+      }
+    ],
+    "trace_events": [
+      {
+        "event_id": "79e63a24fc3d4c52a02fbca4ad28bf2d",
+        "step": "intent",
+        "status": "ok",
+        "summary": "识别意图与明确槽位",
+        "duration_ms": 0.023,
+        "data": {
+          "kind": "policy",
+          "order_id": null,
+          "reason": null,
+          "topic": "refund_time",
+          "ambiguous": false
+        }
+      },
+      {
+        "event_id": "eb8eef49d53f46afb6326baeb21957f9",
+        "step": "retrieval",
+        "status": "ok",
+        "summary": "政策库真实检索",
+        "duration_ms": 0.772,
+        "data": {
+          "query": "退款多久到账？",
+          "hits": [
+            {
+              "id": "P04",
+              "score": 0.6527202277160047,
+              "matched_field": "alias:2"
+            },
+            {
+              "id": "P12",
+              "score": 0.047976535968140256,
+              "matched_field": "full"
+            },
+            {
+              "id": "P11",
+              "score": 0.039734720375664404,
+              "matched_field": "alias:1"
+            }
+          ],
+          "threshold": 0.6
+        }
+      },
+      {
+        "event_id": "0a28a3363e6b4424a7b7307a934997f4",
+        "step": "generation",
+        "status": "ok",
+        "summary": "证据引用已校验；业务文本由服务端呈现",
+        "duration_ms": 0.018,
+        "data": {
+          "mode": "offline",
+          "policy_ids": [
+            "P04"
+          ]
+        }
+      },
+      {
+        "event_id": "5a5d884eef2143888cc4ca4556204719",
+        "step": "action",
+        "status": "ok",
+        "summary": "[P04] 仓库签收退货并验货后，退款在1–3个工作日内原路退回，不承诺具体到账日期。",
+        "duration_ms": 0.847,
+        "data": {
+          "action": "answer",
+          "reason_code": "evidence_answer"
+        }
+      }
+    ],
+    "mode": "offline",
+    "development_stage": 2
+  },
+  "changes": [
+    "??????????????????ID",
+    "?P04????????????"
+  ],
+  "notes": "?????????????????E08?????????15??????",
+  "evidence_files": [
+    "step2-initial-smoke.json",
+    "step2-smoke.json",
+    "step2-initial-tests.xml",
+    "step2-tests.xml"
+  ]
+}

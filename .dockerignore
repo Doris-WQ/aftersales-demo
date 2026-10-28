@@ -1,0 +1,16 @@
+.git
+.env
+.env.*
+.venv
+.runtime
+.pytest_cache
+.ruff_cache
+**/__pycache__
+**/*.pyc
+tests
+reports/*.jpg
+reports/*.png
+reports/*.xml
+reports/*.zip
+reports/*.tmp
+deployment

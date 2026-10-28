@@ -1,0 +1,156 @@
+[
+  {
+    "query": "七天无理由退货的期限如何计算",
+    "expected": "P01",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P01",
+        "score": 0.9012854584225927,
+        "matched_field": "title"
+      },
+      {
+        "id": "P05",
+        "score": 0.29739956163675757,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P10",
+        "score": 0.15659762277425365,
+        "matched_field": "content"
+      }
+    ]
+  },
+  {
+    "query": "商品退回验货后原路到账需要几天",
+    "expected": "P04",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P04",
+        "score": 0.2568818464743966,
+        "matched_field": "full"
+      },
+      {
+        "id": "P09",
+        "score": 0.07433732058390523,
+        "matched_field": "title"
+      },
+      {
+        "id": "P10",
+        "score": 0.07385460087731803,
+        "matched_field": "title"
+      }
+    ]
+  },
+  {
+    "query": "不喜欢衣服退回邮费由谁承担",
+    "expected": "P03",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P03",
+        "score": 0.6294789551340146,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P06",
+        "score": 0.08727798571218595,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P10",
+        "score": 0.08580956848988351,
+        "matched_field": "alias:1"
+      }
+    ]
+  },
+  {
+    "query": "衣服吊牌剪掉了是否影响退货",
+    "expected": "P02",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P02",
+        "score": 0.1631628869359449,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P06",
+        "score": 0.14336717003833688,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P10",
+        "score": 0.1409550747100683,
+        "matched_field": "alias:1"
+      }
+    ]
+  },
+  {
+    "query": "退款多久能到账",
+    "expected": "P04",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P04",
+        "score": 0.31916828787341645,
+        "matched_field": "title"
+      },
+      {
+        "id": "P12",
+        "score": 0.12049242587654424,
+        "matched_field": "full"
+      },
+      {
+        "id": "P11",
+        "score": 0.0998797077422183,
+        "matched_field": "alias:1"
+      }
+    ]
+  },
+  {
+    "query": "退货的钱多久返回账户",
+    "expected": "P04",
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P11",
+        "score": 0.14859990226839684,
+        "matched_field": "content"
+      },
+      {
+        "id": "P07",
+        "score": 0.04774372613620566,
+        "matched_field": "alias:0"
+      },
+      {
+        "id": "P06",
+        "score": 0.04323323824558436,
+        "matched_field": "title"
+      }
+    ]
+  },
+  {
+    "query": "你们支持花呗分期吗？",
+    "expected": null,
+    "threshold": 0.6,
+    "hits": [
+      {
+        "id": "P10",
+        "score": 0.1280056778302608,
+        "matched_field": "content"
+      },
+      {
+        "id": "P09",
+        "score": 0.10562031623085659,
+        "matched_field": "content"
+      },
+      {
+        "id": "P05",
+        "score": 0.09974530035640991,
+        "matched_field": "content"
+      }
+    ]
+  }
+]

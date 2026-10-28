@@ -1,0 +1,7 @@
+[
+  {"order_id":"ORD-1001","item":"纯棉圆领T恤 M码 白色","category":"服饰-上装","amount":129.00,"status":"已签收","signed_date":"2026-10-24","tags_intact":true,"reason_eligible":"无理由","note":"签收3天，吊牌完好","is_custom":false,"is_intimate":false,"resale_condition_ok":true,"evidence_status":"none","quality_issue":null},
+  {"order_id":"ORD-1002","item":"牛仔直筒裤 L码 蓝色","category":"服饰-下装","amount":259.00,"status":"已签收","signed_date":"2026-10-17","tags_intact":true,"reason_eligible":"无理由","note":"签收10天，已超七天","is_custom":false,"is_intimate":false,"resale_condition_ok":true,"evidence_status":"none","quality_issue":null},
+  {"order_id":"ORD-1003","item":"针织开衫 S码 米色","category":"服饰-上装","amount":199.00,"status":"已发货","signed_date":null,"tags_intact":null,"reason_eligible":"未签收","note":"在途，可拦截/拒收","is_custom":false,"is_intimate":false,"resale_condition_ok":null,"evidence_status":"none","quality_issue":null},
+  {"order_id":"ORD-1004","item":"羊毛大衣 M码 黑色","category":"服饰-外套","amount":1280.00,"status":"已签收","signed_date":"2026-10-22","tags_intact":true,"reason_eligible":"无理由","note":"高金额，触发人工审核阈值","is_custom":false,"is_intimate":false,"resale_condition_ok":true,"evidence_status":"none","quality_issue":null},
+  {"order_id":"ORD-1005","item":"运动卫衣 L码 灰色","category":"服饰-上装","amount":168.00,"status":"已签收","signed_date":"2026-10-21","tags_intact":true,"reason_eligible":"质量问题","note":"袖口开线，已上传凭证","is_custom":false,"is_intimate":false,"resale_condition_ok":true,"evidence_status":"uploaded_unverified","quality_issue":"袖口开线"}
+]

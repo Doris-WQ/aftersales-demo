@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-10-27T16:48:47.630778+08:00",
+  "stage": 2,
+  "mode": "offline",
+  "live_model_verified": false,
+  "formal_15_case_evaluation_run": false,
+  "ready_for_demo": false,
+  "tests": {
+    "tests": 98,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "files_sha256": {
+    "data/orders.json": "235c1ff0148c3aabd9b8fff72870e9be66bbe7125608433169d744bea784d7a0",
+    "data/ownership.json": "0503f4ad6839ad24418dc0b193c47371fe6c1be5bb8b0adbf3815d9e7a34d7f8",
+    "data/policies.json": "529f0a7a882a0639da1fc1c88fc682790e61d9db9d2703d3f7f094d4f694a141",
+    "data/settings.json": "b11dee2dfed34df621b7d11507eb1358074944e19e74f1dd80f973223cbc90f0",
+    "pyproject.toml": "ece87888553655c92d9960313faf4f3c92718dbde2570952beda75fd2233636f",
+    "requirements.txt": "8c36191f152854e082ba2eb4cd961f59de9cb4fea8db66d569b4df5d6a0e3d09",
+    "src/aftersales/__init__.py": "692f9281616cd40b911ee78247bf4612157ca2678bc36703affe8ba7d4758937",
+    "src/aftersales/agent.py": "ee9725c7e67f6b4d886cee0ca683f0ba5fe2d46d0a5db707858d74596ee2bc99",
+    "src/aftersales/clock.py": "584d70e40598de02288445e9c84b30befa4dca273f92510090dc31b973018161",
+    "src/aftersales/contracts.py": "173686b6c91f9280d42cea908c506983395b390da0bd220bcf84a15c0b226318",
+    "src/aftersales/data.py": "2c2a18c561dd338d33fbf00172a3a71c8bfe915b27b9c01a109dd6d88a2f309c",
+    "src/aftersales/generation.py": "113a2e50f66a38c88632f14f623ad1e0bf59457535ec009432a240b9f1617616",
+    "src/aftersales/main.py": "0c437c1716e7416e58f2b71eb10aec48c30948dd6d7bdac811e573d9a8844fb8",
+    "src/aftersales/models.py": "3161b7f151495a4d8cca13f7e8c28b25aa4eb0fdf6aa7ec85ac4be4aca5b2ec3",
+    "src/aftersales/orders.py": "93c3ff9b6791bc57f36da4df7002428744dae813130a6e9f8350efae7f59c835",
+    "src/aftersales/parsing.py": "c455eb9983854ffe3c917e02c066225d55f9cf173a295d02013341ea819447aa",
+    "src/aftersales/probe_retrieval.py": "aaf90cd00d54296c481e329c494027f529292d30490645b8d9d4052248a669a6",
+    "src/aftersales/retrieval.py": "06281e54780b069535afbeee42ece3c863e8b98689d4d35630cc7d46ae27b9ae",
+    "src/aftersales/sessions.py": "9e8189d89c887ee17035d9122d1f916e7d60af757ca494194ec26a55e6637b63",
+    "src/aftersales/smoke_agent.py": "fc66b37b3f454eb6d37274a1f0b1ea2128c02e96abf360104fa5c252642a0001",
+    "src/aftersales/validate_data.py": "0f180d18a0bd3308bcac603adcbade5f522d5725efeabccbec91c60796ff3758",
+    "tests/test_agent.py": "c8862974b9c00ad13e5ed21070ae71d70eb99499bf0043574096fded93943753",
+    "tests/test_data.py": "c5b0e85808df8ec727ee9ff88b6d17bc2b4d615e40d8ae3ba079a80a83481fee"
+  }
+}

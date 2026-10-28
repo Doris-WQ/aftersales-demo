@@ -1,0 +1,11 @@
+{
+  "channel": "演示商城",
+  "policy_version": "demo-v1",
+  "timezone": "Asia/Shanghai",
+  "demo_now": "2026-10-27T12:00:00+08:00",
+  "refund_limit_cents": 50000,
+  "retrieval_threshold": 0.6,
+  "no_reason_days": 7,
+  "quality_days": 15,
+  "default_buyer": "buyer-b"
+}

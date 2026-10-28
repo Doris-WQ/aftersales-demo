@@ -1,0 +1,36 @@
+{
+  "nameAndPolicyCheck": {
+    "botLabel": "巾售后小巾",
+    "dataSummaryRemoved": true,
+    "mainReply": "签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+    "mainReplyHasPolicyId": false,
+    "scopeStripRemoved": true,
+    "sourcePreserved": "P01",
+    "title": "电商售后智能体"
+  },
+  "clarificationColor": {
+    "background": "rgb(251, 241, 223)",
+    "color": "rgb(152, 115, 66)"
+  },
+  "handoffStyleCheck": {
+    "badgeBackground": "rgb(255, 227, 232)",
+    "badgeColor": "rgb(180, 35, 53)",
+    "cardBackground": "rgb(255, 240, 242)",
+    "cardBody": "单笔退款金额超过阈值，待人工核实。",
+    "cardHasDate": false,
+    "cardTitleSize": "16px",
+    "cardTitleTag": "H3",
+    "hiddenPolicyIds": true
+  },
+  "complaintCardCheck": {
+    "description": "投诉事项已转人工，待人工核实。",
+    "redHandoff": true
+  },
+  "refinedMobile": {
+    "cardText": "单笔退款金额超过阈值，待人工核实。",
+    "noHorizontalOverflow": true,
+    "ticketTitle": "TK-20261027-0006",
+    "title": "电商售后智能体",
+    "width": 390
+  }
+}

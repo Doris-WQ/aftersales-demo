@@ -1,0 +1,87 @@
+{
+  "observations": [
+    {
+      "case": "policy_question",
+      "citedPolicies": [
+        "P01"
+      ],
+      "orderCardAbsent": true
+    },
+    {
+      "case": "missing_order",
+      "decision": "追问",
+      "noLowConfidenceLabel": true,
+      "noRetrievalLabel": true
+    },
+    {
+      "case": "history_selection",
+      "orderCardAbsent": true,
+      "policy": "P01",
+      "selectedInput": "七天无理由从哪天算？"
+    },
+    {
+      "case": "normal_order",
+      "citedPolicies": [
+        "P01",
+        "P02"
+      ],
+      "conditionalText": "按当前订单信息符合无理由退货条件，可退；吊牌完好且不影响二次销售。请补充退货原因；这不表示已受理退货。\n[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。\n[P02] 吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。",
+      "decision": "政策回答",
+      "orderId": "ORD-1001",
+      "ticketCards": 0
+    },
+    {
+      "amountComparison": "¥1,280.00 超过 ¥500.00，需人工审核",
+      "case": "desktop_r1",
+      "columns": "472.828px 332.891px 378.266px",
+      "decision": "转人工R1",
+      "latestVisible": true,
+      "order": "ORD-1004",
+      "overflow": false,
+      "policy": "P12",
+      "source": "规则直接引用",
+      "viewportWidth": 1280
+    },
+    {
+      "case": "mobile_390px",
+      "emptyAfterReset": true,
+      "overflow": false,
+      "panels": [
+        {
+          "name": "对话窗口",
+          "top": 287.1875,
+          "width": 351
+        },
+        {
+          "name": "决策轨迹",
+          "top": 923.1875,
+          "width": 351
+        },
+        {
+          "name": "订单与政策",
+          "top": 1311.015625,
+          "width": 351
+        }
+      ],
+      "scrollWidth": 375,
+      "width": 375,
+      "workspaceDirection": "column"
+    },
+    {
+      "decision": "转人工R1",
+      "overflow": false,
+      "sendEnabledAfterReply": true,
+      "ticketCards": 1,
+      "viewportWidth": 390
+    },
+    {
+      "case": "service_disconnect",
+      "connection": "服务暂不可用",
+      "inputDisabled": true,
+      "noFabricatedEvents": true,
+      "noOrderCard": true,
+      "reconnectVisible": true
+    }
+  ],
+  "formal_15_case_evaluation_run": false
+}

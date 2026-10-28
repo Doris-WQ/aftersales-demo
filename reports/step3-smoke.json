@@ -1,0 +1,748 @@
+{
+  "health": {
+    "status": "development",
+    "stage": 3,
+    "rules_ready": true,
+    "ready_for_demo": false,
+    "mode": "offline",
+    "policy_version": "demo-v1",
+    "demo_now": "2026-10-27T12:00:00+08:00",
+    "pending": [
+      "网页",
+      "15条业务评测",
+      "真实模型验收"
+    ]
+  },
+  "turns": [
+    {
+      "buyer": "buyer-b",
+      "input": "七天无理由从哪天算？",
+      "output": {
+        "session_id": "a6ce376e32c342678d183054869ec511",
+        "action": "answer",
+        "message": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+        "business_answer": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+        "policy_ids": [
+          "P01"
+        ],
+        "retrieval_score": 0.8829893319373316,
+        "reason_code": "evidence_answer",
+        "missing_fields": [],
+        "handoff_available": false,
+        "handoff_id": null,
+        "trace_id": "b6c74eb3343f426f9b265b0b66ae5669",
+        "order": null,
+        "policy_cards": [
+          {
+            "id": "P01",
+            "title": "七天无理由退货",
+            "content": "签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+            "applicability": "非定制、非贴身类服饰",
+            "version": "demo-v1",
+            "retrieval_aliases": [
+              "无理由退货时间起点",
+              "七日退货期限"
+            ]
+          }
+        ],
+        "trace_events": [
+          {
+            "event_id": "92d7561453ea4a2487f357c6df186c5d",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.984,
+            "data": {
+              "kind": "policy",
+              "order_id": null,
+              "reason": "无理由",
+              "topic": "return_window",
+              "ambiguous": false,
+              "requested_amount_cents": null,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "1f22323f818a4112a7537759a0cea4a1",
+            "step": "retrieval",
+            "status": "ok",
+            "summary": "政策库真实检索",
+            "duration_ms": 1.134,
+            "data": {
+              "query": "七天无理由从哪天算",
+              "required_policy_id": null,
+              "hits": [
+                {
+                  "id": "P01",
+                  "score": 0.8829893319373316,
+                  "matched_field": "title"
+                },
+                {
+                  "id": "P05",
+                  "score": 0.13276546321820637,
+                  "matched_field": "alias:0"
+                },
+                {
+                  "id": "P10",
+                  "score": 0.06998346099765718,
+                  "matched_field": "content"
+                }
+              ],
+              "threshold": 0.6
+            }
+          },
+          {
+            "event_id": "72e8655df474468ba1496b784e4d842d",
+            "step": "generation",
+            "status": "ok",
+            "summary": "证据引用已校验；业务文本由服务端呈现",
+            "duration_ms": 0.037,
+            "data": {
+              "mode": "offline",
+              "policy_ids": [
+                "P01"
+              ]
+            }
+          },
+          {
+            "event_id": "264ba0688d644c01af4eabd7eebe3136",
+            "step": "action",
+            "status": "ok",
+            "summary": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+            "duration_ms": 2.596,
+            "data": {
+              "action": "answer",
+              "reason_code": "evidence_answer"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [],
+        "development_stage": 3
+      }
+    },
+    {
+      "buyer": "buyer-b",
+      "input": "我想退货",
+      "output": {
+        "session_id": "a6ce376e32c342678d183054869ec511",
+        "action": "clarify",
+        "message": "请提供订单号，并说明退货原因。",
+        "business_answer": null,
+        "policy_ids": [],
+        "retrieval_score": null,
+        "reason_code": "missing_order_id",
+        "missing_fields": [
+          "order_id",
+          "reason"
+        ],
+        "handoff_available": false,
+        "handoff_id": null,
+        "trace_id": "f2cf03349af546b893eda76dceb9e23b",
+        "order": null,
+        "policy_cards": [],
+        "trace_events": [
+          {
+            "event_id": "53478acb57c6403bb70fbf1fc98c1093",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.04,
+            "data": {
+              "kind": "return",
+              "order_id": null,
+              "reason": null,
+              "topic": null,
+              "ambiguous": false,
+              "requested_amount_cents": null,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "fab2088f26524dc9bbf66003b40d6986",
+            "step": "slots",
+            "status": "ok",
+            "summary": "缺少订单号，未执行订单查询或政策检索",
+            "duration_ms": 0.059,
+            "data": {
+              "missing": [
+                "order_id"
+              ]
+            }
+          },
+          {
+            "event_id": "f805ddeab2544909a23c8e785b6ad46f",
+            "step": "action",
+            "status": "ok",
+            "summary": "请提供订单号，并说明退货原因。",
+            "duration_ms": 0.065,
+            "data": {
+              "action": "clarify",
+              "reason_code": "missing_order_id"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [],
+        "development_stage": 3
+      }
+    },
+    {
+      "buyer": "buyer-b",
+      "input": "ORD-1004 我要退款",
+      "output": {
+        "session_id": "a6ce376e32c342678d183054869ec511",
+        "action": "handoff",
+        "message": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+        "business_answer": null,
+        "policy_ids": [
+          "P12"
+        ],
+        "retrieval_score": null,
+        "reason_code": "amount_limit",
+        "missing_fields": [],
+        "handoff_available": false,
+        "handoff_id": "TK-20261027-0001",
+        "trace_id": "396c1cc2f77343acbb4f1f29079902ab",
+        "order": {
+          "order_id": "ORD-1004",
+          "item": "羊毛大衣 M码 黑色",
+          "category": "服饰-外套",
+          "amount": "1280.00",
+          "status": "已签收",
+          "signed_date": "2026-10-22",
+          "tags_intact": true,
+          "reason_eligible": "无理由",
+          "note": "高金额，触发人工审核阈值",
+          "is_custom": false,
+          "is_intimate": false,
+          "resale_condition_ok": true,
+          "evidence_status": "none",
+          "quality_issue": null
+        },
+        "policy_cards": [
+          {
+            "id": "P12",
+            "title": "高金额退款",
+            "content": "单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。",
+            "applicability": "退款金额超过500元",
+            "version": "demo-v1",
+            "retrieval_aliases": [
+              "大额退款人工审核",
+              "退款金额限制"
+            ]
+          }
+        ],
+        "trace_events": [
+          {
+            "event_id": "07ec893f198c4ef8bd4ceb3d973d51e5",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.054,
+            "data": {
+              "kind": "return",
+              "order_id": "ORD-1004",
+              "reason": null,
+              "topic": null,
+              "ambiguous": false,
+              "requested_amount_cents": null,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "6c00c07719f941728d877f33f1e67006",
+            "step": "order_query",
+            "status": "ok",
+            "summary": "已调用模拟订单 HTTP 接口",
+            "duration_ms": 1.343,
+            "data": {
+              "path": "/api/mock/orders/ORD-1004",
+              "transport": "in_process_asgi",
+              "status_code": 200,
+              "order_id": "ORD-1004",
+              "paid_amount_cents": 128000
+            }
+          },
+          {
+            "event_id": "761f2f79d2624a03b56f7bc3d23540c9",
+            "step": "amount_check",
+            "status": "ok",
+            "summary": "按实付金额与请求金额较大值检查",
+            "duration_ms": 1.432,
+            "data": {
+              "paid_amount_cents": 128000,
+              "requested_amount_cents": null,
+              "gate_amount_cents": 128000,
+              "limit_cents": 50000
+            }
+          },
+          {
+            "event_id": "bc3dee6bb05347a6af7c7c895c4b737d",
+            "step": "rule",
+            "status": "blocked",
+            "summary": "退款金额超过阈值，强制人工审核",
+            "duration_ms": 1.442,
+            "data": {
+              "rule_id": "R1",
+              "gate_amount_cents": 128000,
+              "paid_amount_cents": 128000,
+              "requested_amount_cents": null,
+              "limit_cents": 50000
+            }
+          },
+          {
+            "event_id": "bec9601f32b6496b830db0c8e6cbd93f",
+            "step": "retrieval",
+            "status": "skipped",
+            "summary": "检索未执行；规则直接引用政策",
+            "duration_ms": 1.449,
+            "data": {
+              "source": "code_rule",
+              "policy_ids": [
+                "P12"
+              ]
+            }
+          },
+          {
+            "event_id": "b39bb97757f24f28adf4f6377f0283a8",
+            "step": "handoff",
+            "status": "ok",
+            "summary": "已创建模拟转人工记录",
+            "duration_ms": 1.493,
+            "data": {
+              "handoff_id": "TK-20261027-0001",
+              "reused": false
+            }
+          },
+          {
+            "event_id": "640b7041da784e4ca21a9007b79dfb17",
+            "step": "action",
+            "status": "ok",
+            "summary": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+            "duration_ms": 1.5,
+            "data": {
+              "action": "handoff",
+              "reason_code": "amount_limit"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [
+          "R1"
+        ],
+        "development_stage": 3
+      }
+    },
+    {
+      "buyer": "buyer-b",
+      "input": "你们再这样我投诉",
+      "output": {
+        "session_id": "a6ce376e32c342678d183054869ec511",
+        "action": "handoff",
+        "message": "已收到你的诉求，需要人工核实处理。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+        "business_answer": null,
+        "policy_ids": [],
+        "retrieval_score": null,
+        "reason_code": "complaint",
+        "missing_fields": [],
+        "handoff_available": false,
+        "handoff_id": "TK-20261027-0002",
+        "trace_id": "883c5dc9c2584d528ce2c83875e7b086",
+        "order": null,
+        "policy_cards": [],
+        "trace_events": [
+          {
+            "event_id": "d14c1c43fe9e4dc68334b06cfc4d6e61",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.034,
+            "data": {
+              "kind": "unknown",
+              "order_id": null,
+              "reason": null,
+              "topic": null,
+              "ambiguous": false,
+              "requested_amount_cents": null,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "48c9913d2a114e8c94fda0594c7d17ea",
+            "step": "rule",
+            "status": "blocked",
+            "summary": "投诉或明确人工请求，直接转人工",
+            "duration_ms": 0.048,
+            "data": {
+              "rule_id": "R3"
+            }
+          },
+          {
+            "event_id": "38482d7d4d45493a89a71ab29d598dcf",
+            "step": "handoff",
+            "status": "ok",
+            "summary": "已创建模拟转人工记录",
+            "duration_ms": 0.098,
+            "data": {
+              "handoff_id": "TK-20261027-0002",
+              "reused": false
+            }
+          },
+          {
+            "event_id": "bf4108cbd60541948348221194bcf51c",
+            "step": "action",
+            "status": "ok",
+            "summary": "已收到你的诉求，需要人工核实处理。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+            "duration_ms": 0.104,
+            "data": {
+              "action": "handoff",
+              "reason_code": "complaint"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [
+          "R3"
+        ],
+        "development_stage": 3
+      }
+    },
+    {
+      "buyer": "buyer-a",
+      "input": "退货能不能上门取件？",
+      "output": {
+        "session_id": "662a3a553d164285952b8ca12ab33a36",
+        "action": "clarify",
+        "message": "当前无法确认，请补充具体问题或订单号，也可通过入口转人工。",
+        "business_answer": null,
+        "policy_ids": [],
+        "retrieval_score": 0.08945354444722502,
+        "reason_code": "low_confidence",
+        "missing_fields": [
+          "question"
+        ],
+        "handoff_available": true,
+        "handoff_id": null,
+        "trace_id": "9a5d484fdb6a46b5b3139ca294232fa2",
+        "order": null,
+        "policy_cards": [],
+        "trace_events": [
+          {
+            "event_id": "aa96560206444ffb860ecc363f4d6402",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.033,
+            "data": {
+              "kind": "policy",
+              "order_id": null,
+              "reason": null,
+              "topic": null,
+              "ambiguous": false,
+              "requested_amount_cents": null,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "849e23916bcc45bfba47e1398783a756",
+            "step": "retrieval",
+            "status": "ok",
+            "summary": "政策库真实检索",
+            "duration_ms": 1.065,
+            "data": {
+              "query": "退货能不能上门取件",
+              "required_policy_id": null,
+              "hits": [
+                {
+                  "id": "P02",
+                  "score": 0.08945354444722502,
+                  "matched_field": "content"
+                },
+                {
+                  "id": "P07",
+                  "score": 0.08723634834349095,
+                  "matched_field": "alias:0"
+                },
+                {
+                  "id": "P06",
+                  "score": 0.07860727809151931,
+                  "matched_field": "title"
+                }
+              ],
+              "threshold": 0.6
+            }
+          },
+          {
+            "event_id": "cc856fef12bf49ef8d7cf1d4f3676161",
+            "step": "rule",
+            "status": "blocked",
+            "summary": "top1 低于门槛或分数无效，只追问、不生成政策答案",
+            "duration_ms": 1.135,
+            "data": {
+              "rule_id": "R2",
+              "score": 0.08945354444722502,
+              "threshold": 0.6
+            }
+          },
+          {
+            "event_id": "aee6a614d28f48edb7a2c96d62a02bb7",
+            "step": "rule",
+            "status": "blocked",
+            "summary": "当前无法确认，提供转人工入口，不自动创建工单",
+            "duration_ms": 1.149,
+            "data": {
+              "rule_id": "R4",
+              "clarification_turns": 1
+            }
+          },
+          {
+            "event_id": "2496d1d779084540adcf12e4fe906d79",
+            "step": "generation",
+            "status": "skipped",
+            "summary": "证据不足，未调用答案生成器",
+            "duration_ms": 1.153,
+            "data": {}
+          },
+          {
+            "event_id": "ec805706fd634006aba0f50322e218c5",
+            "step": "action",
+            "status": "ok",
+            "summary": "当前无法确认，请补充具体问题或订单号，也可通过入口转人工。",
+            "duration_ms": 1.157,
+            "data": {
+              "action": "clarify",
+              "reason_code": "low_confidence"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [
+          "R2",
+          "R4"
+        ],
+        "development_stage": 3
+      }
+    },
+    {
+      "buyer": "buyer-a",
+      "input": "ORD-1005 有质量问题，退我1000",
+      "output": {
+        "session_id": "e700cf55a09d4a86a2552839e0d880fb",
+        "action": "handoff",
+        "message": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。 [P06] 该质量问题在政策适用范围内，凭证仍需核验。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+        "business_answer": null,
+        "policy_ids": [
+          "P12",
+          "P06"
+        ],
+        "retrieval_score": null,
+        "reason_code": "amount_limit",
+        "missing_fields": [],
+        "handoff_available": false,
+        "handoff_id": "TK-20261027-0004",
+        "trace_id": "42317e2f94e54679856545079e5b0425",
+        "order": {
+          "order_id": "ORD-1005",
+          "item": "运动卫衣 L码 灰色",
+          "category": "服饰-上装",
+          "amount": "168.00",
+          "status": "已签收",
+          "signed_date": "2026-10-21",
+          "tags_intact": true,
+          "reason_eligible": "质量问题",
+          "note": "袖口开线，已上传凭证",
+          "is_custom": false,
+          "is_intimate": false,
+          "resale_condition_ok": true,
+          "evidence_status": "uploaded_unverified",
+          "quality_issue": "袖口开线"
+        },
+        "policy_cards": [
+          {
+            "id": "P12",
+            "title": "高金额退款",
+            "content": "单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。",
+            "applicability": "退款金额超过500元",
+            "version": "demo-v1",
+            "retrieval_aliases": [
+              "大额退款人工审核",
+              "退款金额限制"
+            ]
+          },
+          {
+            "id": "P06",
+            "title": "质量问题退货",
+            "content": "签收15天内出现开线、破洞、色差等质量问题，可退可换，运费卖家承担，需上传图片凭证。图片上传不代表核验通过，质量情况和凭证仍需核验。",
+            "applicability": "质量问题且需图片凭证",
+            "version": "demo-v1",
+            "retrieval_aliases": [
+              "衣服开线破洞",
+              "质量凭证核验"
+            ]
+          }
+        ],
+        "trace_events": [
+          {
+            "event_id": "ba886ccb676b44758836253c92a690e9",
+            "step": "intent",
+            "status": "ok",
+            "summary": "识别意图与明确槽位",
+            "duration_ms": 0.354,
+            "data": {
+              "kind": "return",
+              "order_id": "ORD-1005",
+              "reason": "质量问题",
+              "topic": null,
+              "ambiguous": false,
+              "requested_amount_cents": 100000,
+              "invalid_amount": false
+            }
+          },
+          {
+            "event_id": "1743ab572e9e4dd8bd78890969fef466",
+            "step": "order_query",
+            "status": "ok",
+            "summary": "已调用模拟订单 HTTP 接口",
+            "duration_ms": 1.085,
+            "data": {
+              "path": "/api/mock/orders/ORD-1005",
+              "transport": "in_process_asgi",
+              "status_code": 200,
+              "order_id": "ORD-1005",
+              "paid_amount_cents": 16800
+            }
+          },
+          {
+            "event_id": "3a8513f30f364e4e84304b20968a7a13",
+            "step": "amount_check",
+            "status": "ok",
+            "summary": "按实付金额与请求金额较大值检查",
+            "duration_ms": 1.472,
+            "data": {
+              "paid_amount_cents": 16800,
+              "requested_amount_cents": 100000,
+              "gate_amount_cents": 100000,
+              "limit_cents": 50000
+            }
+          },
+          {
+            "event_id": "cd6374015aba4f9f9bb85406ccd130b5",
+            "step": "rule",
+            "status": "blocked",
+            "summary": "退款金额超过阈值，强制人工审核",
+            "duration_ms": 1.48,
+            "data": {
+              "rule_id": "R1",
+              "gate_amount_cents": 100000,
+              "paid_amount_cents": 16800,
+              "requested_amount_cents": 100000,
+              "limit_cents": 50000
+            }
+          },
+          {
+            "event_id": "88abb5c5bd4c4249acdcd135c6757de4",
+            "step": "retrieval",
+            "status": "skipped",
+            "summary": "检索未执行；规则直接引用政策",
+            "duration_ms": 1.498,
+            "data": {
+              "source": "code_rule",
+              "policy_ids": [
+                "P12",
+                "P06"
+              ]
+            }
+          },
+          {
+            "event_id": "a92c966e0ac340baa1b01b1bd8b78a27",
+            "step": "handoff",
+            "status": "ok",
+            "summary": "已创建模拟转人工记录",
+            "duration_ms": 1.53,
+            "data": {
+              "handoff_id": "TK-20261027-0004",
+              "reused": false
+            }
+          },
+          {
+            "event_id": "d7ef05657a454ffc8928bfd0b4262923",
+            "step": "action",
+            "status": "ok",
+            "summary": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。 [P06] 该质量问题在政策适用范围内，凭证仍需核验。 已为你创建模拟转人工工单；不代表真实客服已接入。",
+            "duration_ms": 1.535,
+            "data": {
+              "action": "handoff",
+              "reason_code": "amount_limit"
+            }
+          }
+        ],
+        "mode": "offline",
+        "triggered_rules": [
+          "R1"
+        ],
+        "development_stage": 3
+      }
+    }
+  ],
+  "tickets": [
+    {
+      "handoff_id": "TK-20261027-0001",
+      "session_id": "a6ce376e32c342678d183054869ec511",
+      "source_trace_id": "396c1cc2f77343acbb4f1f29079902ab",
+      "order_id": "ORD-1004",
+      "reason_code": "amount_limit",
+      "summary": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。",
+      "created_at": "2026-10-27T12:00:00+08:00",
+      "status": "simulated_created"
+    },
+    {
+      "handoff_id": "TK-20261027-0002",
+      "session_id": "a6ce376e32c342678d183054869ec511",
+      "source_trace_id": "883c5dc9c2584d528ce2c83875e7b086",
+      "order_id": "ORD-1004",
+      "reason_code": "complaint",
+      "summary": "已收到你的诉求，需要人工核实处理。",
+      "created_at": "2026-10-27T12:00:00+08:00",
+      "status": "simulated_created"
+    },
+    {
+      "ticket": {
+        "handoff_id": "TK-20261027-0003",
+        "session_id": "662a3a553d164285952b8ca12ab33a36",
+        "source_trace_id": "9a5d484fdb6a46b5b3139ca294232fa2",
+        "order_id": null,
+        "reason_code": "manual_low_confidence",
+        "summary": "用户通过已授权的当前事项入口请求人工核实；不承诺处理结果。",
+        "created_at": "2026-10-27T12:00:00+08:00",
+        "status": "simulated_created"
+      },
+      "reused": false,
+      "trace_events": [
+        {
+          "event_id": "dfd6d31878ab40f0b4b7fbd97f8399ff",
+          "step": "handoff",
+          "status": "ok",
+          "summary": "已创建模拟转人工记录",
+          "duration_ms": 0.04,
+          "data": {
+            "handoff_id": "TK-20261027-0003",
+            "reused": false,
+            "source": "manual_entry"
+          }
+        }
+      ]
+    },
+    {
+      "handoff_id": "TK-20261027-0004",
+      "session_id": "e700cf55a09d4a86a2552839e0d880fb",
+      "source_trace_id": "42317e2f94e54679856545079e5b0425",
+      "order_id": "ORD-1005",
+      "reason_code": "amount_limit",
+      "summary": "[P12] 单笔退款金额超过500元需人工审核，Agent不得直接承诺退款结果。 本次金额需人工审核，不承诺退款结果。 [P06] 该质量问题在政策适用范围内，凭证仍需核验。",
+      "created_at": "2026-10-27T12:00:00+08:00",
+      "status": "simulated_created"
+    }
+  ],
+  "formal_15_case_evaluation_run": false
+}

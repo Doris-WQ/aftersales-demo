@@ -1,0 +1,211 @@
+[
+  {
+    "input": "ORD-1001 退我一些钱",
+    "output": {
+      "session_id": "1e3ce333a8b349c79f6aac51fd5f3bb1",
+      "action": "clarify",
+      "message": "已查到订单，请说明退货原因，例如尺码不合或质量问题。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": null,
+      "reason_code": "missing_reason",
+      "missing_fields": [
+        "reason"
+      ],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "4451ee4f6dd24271b5b54bbe07cd0dc7",
+      "order": {
+        "order_id": "ORD-1001",
+        "item": "纯棉圆领T恤 M码 白色",
+        "category": "服饰-上装",
+        "amount": "129.00",
+        "status": "已签收",
+        "signed_date": "2026-10-24",
+        "tags_intact": true,
+        "reason_eligible": "无理由",
+        "note": "签收3天，吊牌完好",
+        "is_custom": false,
+        "is_intimate": false,
+        "resale_condition_ok": true,
+        "evidence_status": "none",
+        "quality_issue": null
+      },
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "a05e2243314f4759919d9bc16e2097bb",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 1.857,
+          "data": {
+            "kind": "return",
+            "order_id": "ORD-1001",
+            "reason": null,
+            "topic": null,
+            "ambiguous": false,
+            "requested_amount_cents": 100,
+            "invalid_amount": false
+          }
+        },
+        {
+          "event_id": "11a1034b183946279a99e3fdfce78fff",
+          "step": "order_query",
+          "status": "ok",
+          "summary": "已调用模拟订单 HTTP 接口",
+          "duration_ms": 1.999,
+          "data": {
+            "path": "/api/mock/orders/ORD-1001",
+            "transport": "in_process_asgi",
+            "status_code": 200,
+            "order_id": "ORD-1001",
+            "paid_amount_cents": 12900
+          }
+        },
+        {
+          "event_id": "878e474b4f9c46d6854f3af1acec2b6c",
+          "step": "amount_check",
+          "status": "ok",
+          "summary": "按实付金额与请求金额较大值检查",
+          "duration_ms": 4.496,
+          "data": {
+            "paid_amount_cents": 12900,
+            "requested_amount_cents": 100,
+            "gate_amount_cents": 12900,
+            "limit_cents": 50000
+          }
+        },
+        {
+          "event_id": "3af3698375aa4b51860086353b1c8665",
+          "step": "action",
+          "status": "ok",
+          "summary": "已查到订单，请说明退货原因，例如尺码不合或质量问题。",
+          "duration_ms": 4.533,
+          "data": {
+            "action": "clarify",
+            "reason_code": "missing_reason"
+          }
+        }
+      ],
+      "mode": "offline",
+      "triggered_rules": [],
+      "development_stage": 3
+    }
+  },
+  {
+    "input": "1000元",
+    "output": {
+      "session_id": "1e3ce333a8b349c79f6aac51fd5f3bb1",
+      "action": "clarify",
+      "message": "当前无法确认，请补充具体问题或订单号，也可通过入口转人工。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": 0.2038697281317567,
+      "reason_code": "low_confidence",
+      "missing_fields": [
+        "question"
+      ],
+      "handoff_available": true,
+      "handoff_id": null,
+      "trace_id": "898a6a4fd38e41a6a4d12c146d61b5d4",
+      "order": null,
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "36c3fac397b74c8d826e1b1f06085f6b",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.123,
+          "data": {
+            "kind": "unknown",
+            "order_id": null,
+            "reason": null,
+            "topic": null,
+            "ambiguous": false,
+            "requested_amount_cents": null,
+            "invalid_amount": false
+          }
+        },
+        {
+          "event_id": "b42af795717644dc842f1a9ee95ef91e",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 0.927,
+          "data": {
+            "query": "1000元",
+            "required_policy_id": null,
+            "hits": [
+              {
+                "id": "P12",
+                "score": 0.2038697281317567,
+                "matched_field": "full"
+              },
+              {
+                "id": "P01",
+                "score": 0.0,
+                "matched_field": "title"
+              },
+              {
+                "id": "P02",
+                "score": 0.0,
+                "matched_field": "title"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "5101e212e9f44df3870d1128cb95ef96",
+          "step": "rule",
+          "status": "blocked",
+          "summary": "top1 低于门槛或分数无效，只追问、不生成政策答案",
+          "duration_ms": 1.239,
+          "data": {
+            "rule_id": "R2",
+            "score": 0.2038697281317567,
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "9f4e408cfd334f44b8bfed78aea50215",
+          "step": "rule",
+          "status": "blocked",
+          "summary": "当前无法确认，提供转人工入口，不自动创建工单",
+          "duration_ms": 1.271,
+          "data": {
+            "rule_id": "R4",
+            "clarification_turns": 1
+          }
+        },
+        {
+          "event_id": "b2cb9ffecfa546698691e6db696350bd",
+          "step": "generation",
+          "status": "skipped",
+          "summary": "证据不足，未调用答案生成器",
+          "duration_ms": 1.278,
+          "data": {}
+        },
+        {
+          "event_id": "591c3b8e06ad45e8a059c7fde0d28cee",
+          "step": "action",
+          "status": "ok",
+          "summary": "当前无法确认，请补充具体问题或订单号，也可通过入口转人工。",
+          "duration_ms": 1.284,
+          "data": {
+            "action": "clarify",
+            "reason_code": "low_confidence"
+          }
+        }
+      ],
+      "mode": "offline",
+      "triggered_rules": [
+        "R2",
+        "R4"
+      ],
+      "development_stage": 3
+    }
+  }
+]

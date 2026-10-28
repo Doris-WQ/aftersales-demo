@@ -1,0 +1,701 @@
+[
+  {
+    "scenario": "policy",
+    "input": "七天无理由从哪天算？",
+    "output": {
+      "session_id": "7e815ad2ddaa49a692594211faf24e18",
+      "action": "answer",
+      "message": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+      "business_answer": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+      "policy_ids": [
+        "P01"
+      ],
+      "retrieval_score": 0.8845959110162973,
+      "reason_code": "evidence_answer",
+      "missing_fields": [],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "ceb3783037964f7b8026fa049fd7da8f",
+      "order": null,
+      "policy_cards": [
+        {
+          "id": "P01",
+          "title": "七天无理由退货",
+          "content": "签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+          "applicability": "非定制、非贴身类服饰",
+          "version": "demo-v1",
+          "retrieval_aliases": [
+            "无理由退货时间起点",
+            "七日退货期限"
+          ]
+        }
+      ],
+      "trace_events": [
+        {
+          "event_id": "0838eb0a6633411894450e2eb3c5f1a3",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.054,
+          "data": {
+            "kind": "policy",
+            "order_id": null,
+            "reason": "无理由",
+            "topic": "return_window",
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "8b9fd01cfdfa4318a85287cd587c5d0a",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 1.005,
+          "data": {
+            "query": "七天无理由从哪天算？",
+            "hits": [
+              {
+                "id": "P01",
+                "score": 0.8845959110162973,
+                "matched_field": "title"
+              },
+              {
+                "id": "P05",
+                "score": 0.13048717160099912,
+                "matched_field": "alias:0"
+              },
+              {
+                "id": "P10",
+                "score": 0.06870884665327964,
+                "matched_field": "content"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "a32f83cd714c49699a6770d02a48caba",
+          "step": "generation",
+          "status": "ok",
+          "summary": "证据引用已校验；业务文本由服务端呈现",
+          "duration_ms": 0.04,
+          "data": {
+            "mode": "offline",
+            "policy_ids": [
+              "P01"
+            ]
+          }
+        },
+        {
+          "event_id": "0edf4e222d134827ad22103a37d74043",
+          "step": "action",
+          "status": "ok",
+          "summary": "[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+          "duration_ms": 1.144,
+          "data": {
+            "action": "answer",
+            "reason_code": "evidence_answer"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "refund_time",
+    "input": "退款多久到账？",
+    "output": {
+      "session_id": "5990cee467264513ad13ebcb762a5de8",
+      "action": "clarify",
+      "message": "当前无法确认，请补充具体问题或订单号。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": 0.31916828787341645,
+      "reason_code": "low_confidence",
+      "missing_fields": [
+        "question"
+      ],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "ec66174ccfd84e03a0931c8682f870f4",
+      "order": null,
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "1af6551a8849474ba4d30f771e1b55ff",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.026,
+          "data": {
+            "kind": "policy",
+            "order_id": null,
+            "reason": null,
+            "topic": "refund_time",
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "b82d835401f74686b2cabfb05f22d212",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 0.793,
+          "data": {
+            "query": "退款多久到账？",
+            "hits": [
+              {
+                "id": "P04",
+                "score": 0.31916828787341645,
+                "matched_field": "title"
+              },
+              {
+                "id": "P12",
+                "score": 0.12049242587654424,
+                "matched_field": "full"
+              },
+              {
+                "id": "P11",
+                "score": 0.0998797077422183,
+                "matched_field": "alias:1"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "e21d2f31be2f433ebd0ffbaa306c8ee7",
+          "step": "generation",
+          "status": "skipped",
+          "summary": "证据分数不足，未调用答案生成器",
+          "duration_ms": 0.844,
+          "data": {}
+        },
+        {
+          "event_id": "307b3e463fc54e61808d2aebfc6fb4ed",
+          "step": "action",
+          "status": "ok",
+          "summary": "当前无法确认，请补充具体问题或订单号。",
+          "duration_ms": 0.852,
+          "data": {
+            "action": "clarify",
+            "reason_code": "low_confidence"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "slots",
+    "input": "我想退货",
+    "output": {
+      "session_id": "9df4090f7b644913bddec299f91653af",
+      "action": "clarify",
+      "message": "请提供订单号，并说明退货原因。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": null,
+      "reason_code": "missing_order_id",
+      "missing_fields": [
+        "order_id",
+        "reason"
+      ],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "5402e5a72aab48bf8061cd1043e9e785",
+      "order": null,
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "3e9a47c48d48486ebbbfe6d802ae0dbd",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.026,
+          "data": {
+            "kind": "return",
+            "order_id": null,
+            "reason": null,
+            "topic": null,
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "a23acb930938479981f93c40dca07a9b",
+          "step": "slots",
+          "status": "ok",
+          "summary": "缺少订单号，未执行订单查询或政策检索",
+          "duration_ms": 0.04,
+          "data": {
+            "missing": [
+              "order_id"
+            ]
+          }
+        },
+        {
+          "event_id": "af830838acb049028f6cfe80437bb40c",
+          "step": "action",
+          "status": "ok",
+          "summary": "请提供订单号，并说明退货原因。",
+          "duration_ms": 0.047,
+          "data": {
+            "action": "clarify",
+            "reason_code": "missing_order_id"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "slots",
+    "input": "ORD-1001",
+    "output": {
+      "session_id": "9df4090f7b644913bddec299f91653af",
+      "action": "clarify",
+      "message": "已查到订单，请说明退货原因，例如尺码不合或质量问题。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": null,
+      "reason_code": "missing_reason",
+      "missing_fields": [
+        "reason"
+      ],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "aa91f10375984605818ed1292f8528e9",
+      "order": {
+        "order_id": "ORD-1001",
+        "item": "纯棉圆领T恤 M码 白色",
+        "category": "服饰-上装",
+        "amount": "129.00",
+        "status": "已签收",
+        "signed_date": "2026-10-24",
+        "tags_intact": true,
+        "reason_eligible": "无理由",
+        "note": "签收3天，吊牌完好",
+        "is_custom": false,
+        "is_intimate": false,
+        "resale_condition_ok": true,
+        "evidence_status": "none",
+        "quality_issue": null
+      },
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "79fcfbf6f449458c979d9ecf7258b57e",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.042,
+          "data": {
+            "kind": "return",
+            "order_id": "ORD-1001",
+            "reason": null,
+            "topic": null,
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "b32d8d61b3754e5dac3694089d4efce0",
+          "step": "order_query",
+          "status": "ok",
+          "summary": "已调用模拟订单 HTTP 接口",
+          "duration_ms": 1.449,
+          "data": {
+            "path": "/api/mock/orders/ORD-1001",
+            "transport": "in_process_asgi",
+            "status_code": 200,
+            "order_id": "ORD-1001",
+            "paid_amount_cents": 12900
+          }
+        },
+        {
+          "event_id": "4dd96a1c42df4e43841a54c801468554",
+          "step": "action",
+          "status": "ok",
+          "summary": "已查到订单，请说明退货原因，例如尺码不合或质量问题。",
+          "duration_ms": 1.534,
+          "data": {
+            "action": "clarify",
+            "reason_code": "missing_reason"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "slots",
+    "input": "尺码不合",
+    "output": {
+      "session_id": "9df4090f7b644913bddec299f91653af",
+      "action": "answer",
+      "message": "按当前订单信息符合无理由退货条件，可退；吊牌完好且不影响二次销售。[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。\n[P02] 吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。",
+      "business_answer": "按当前订单信息符合无理由退货条件，可退；吊牌完好且不影响二次销售。[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。\n[P02] 吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。",
+      "policy_ids": [
+        "P01",
+        "P02"
+      ],
+      "retrieval_score": 1.0000000000000002,
+      "reason_code": "evidence_answer",
+      "missing_fields": [],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "c0cf96c6eaaa4034ac2c7e6b6ddfb8b7",
+      "order": {
+        "order_id": "ORD-1001",
+        "item": "纯棉圆领T恤 M码 白色",
+        "category": "服饰-上装",
+        "amount": "129.00",
+        "status": "已签收",
+        "signed_date": "2026-10-24",
+        "tags_intact": true,
+        "reason_eligible": "无理由",
+        "note": "签收3天，吊牌完好",
+        "is_custom": false,
+        "is_intimate": false,
+        "resale_condition_ok": true,
+        "evidence_status": "none",
+        "quality_issue": null
+      },
+      "policy_cards": [
+        {
+          "id": "P01",
+          "title": "七天无理由退货",
+          "content": "签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。",
+          "applicability": "非定制、非贴身类服饰",
+          "version": "demo-v1",
+          "retrieval_aliases": [
+            "无理由退货时间起点",
+            "七日退货期限"
+          ]
+        },
+        {
+          "id": "P02",
+          "title": "吊牌与包装要求",
+          "content": "吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。",
+          "applicability": "退货商品状态核验；限制针对无理由退货",
+          "version": "demo-v1",
+          "retrieval_aliases": [
+            "吊牌拆除",
+            "水洗标和穿着痕迹"
+          ]
+        }
+      ],
+      "trace_events": [
+        {
+          "event_id": "b756da894cb64c769bb7c14bfe05cbba",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.024,
+          "data": {
+            "kind": "return",
+            "order_id": null,
+            "reason": "尺码不合",
+            "topic": null,
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "265c56b43c674cf1bcbc7c183b17e2f7",
+          "step": "order_query",
+          "status": "ok",
+          "summary": "已调用模拟订单 HTTP 接口",
+          "duration_ms": 1.564,
+          "data": {
+            "path": "/api/mock/orders/ORD-1001",
+            "transport": "in_process_asgi",
+            "status_code": 200,
+            "order_id": "ORD-1001",
+            "paid_amount_cents": 12900
+          }
+        },
+        {
+          "event_id": "f9678dbe4ff34dcdb0aa26f160a1d44a",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 1.486,
+          "data": {
+            "query": "七天无理由退货",
+            "hits": [
+              {
+                "id": "P01",
+                "score": 1.0000000000000002,
+                "matched_field": "title"
+              },
+              {
+                "id": "P05",
+                "score": 0.32997266166621486,
+                "matched_field": "alias:0"
+              },
+              {
+                "id": "P10",
+                "score": 0.17374919489805915,
+                "matched_field": "content"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "c8fc896e36b3418aa68b102a77c1417b",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 0.853,
+          "data": {
+            "query": "吊牌与包装要求",
+            "hits": [
+              {
+                "id": "P02",
+                "score": 1.0000000000000007,
+                "matched_field": "title"
+              },
+              {
+                "id": "P01",
+                "score": 0.019501168750898714,
+                "matched_field": "content"
+              },
+              {
+                "id": "P03",
+                "score": 0.0,
+                "matched_field": "title"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "1236e155adc342a3b180b886410925f1",
+          "step": "generation",
+          "status": "ok",
+          "summary": "证据引用已校验；业务文本由服务端呈现",
+          "duration_ms": 0.026,
+          "data": {
+            "mode": "offline",
+            "policy_ids": [
+              "P01",
+              "P02"
+            ]
+          }
+        },
+        {
+          "event_id": "0513f2aab1dd4aa3b330c16d4fb0aa67",
+          "step": "action",
+          "status": "ok",
+          "summary": "按当前订单信息符合无理由退货条件，可退；吊牌完好且不影响二次销售。[P01] 签收次日起7天内可申请无理由退货，商品需吊牌完好、不影响二次销售。\n[P02] 吊牌缺失、水洗标剪除、有明显穿着痕迹的商品不支持无理由退货。质量问题不能仅依此拒绝；本条未明确其他包装要求。",
+          "duration_ms": 4.044,
+          "data": {
+            "action": "answer",
+            "reason_code": "evidence_answer"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "in_transit",
+    "input": "ORD-1003 还没收到，能退吗？",
+    "output": {
+      "session_id": "55fc85d128cf40719e9ba313f9661452",
+      "action": "answer",
+      "message": "订单 ORD-1003 已发货、未签收。[P07] 已发货未签收可申请拦截或拒收，拦截成功后退款；拒收运费视原因而定。不承诺拦截一定成功。",
+      "business_answer": "订单 ORD-1003 已发货、未签收。[P07] 已发货未签收可申请拦截或拒收，拦截成功后退款；拒收运费视原因而定。不承诺拦截一定成功。",
+      "policy_ids": [
+        "P07"
+      ],
+      "retrieval_score": 1.0000000000000004,
+      "reason_code": "evidence_answer",
+      "missing_fields": [],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "28590bab03724a59ba61dc7cfe8a12ad",
+      "order": {
+        "order_id": "ORD-1003",
+        "item": "针织开衫 S码 米色",
+        "category": "服饰-上装",
+        "amount": "199.00",
+        "status": "已发货",
+        "signed_date": null,
+        "tags_intact": null,
+        "reason_eligible": "未签收",
+        "note": "在途，可拦截/拒收",
+        "is_custom": false,
+        "is_intimate": false,
+        "resale_condition_ok": null,
+        "evidence_status": "none",
+        "quality_issue": null
+      },
+      "policy_cards": [
+        {
+          "id": "P07",
+          "title": "已发货未签收",
+          "content": "已发货未签收可申请拦截或拒收，拦截成功后退款；拒收运费视原因而定。不承诺拦截一定成功。",
+          "applicability": "物流状态为已发货、尚未签收",
+          "version": "demo-v1",
+          "retrieval_aliases": [
+            "在途退货",
+            "物流拦截拒收"
+          ]
+        }
+      ],
+      "trace_events": [
+        {
+          "event_id": "8857ca72fa4a4797a65e82ffef6425f3",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.031,
+          "data": {
+            "kind": "return",
+            "order_id": "ORD-1003",
+            "reason": null,
+            "topic": null,
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "e088392a84ea45c9b52509abe86d1991",
+          "step": "order_query",
+          "status": "ok",
+          "summary": "已调用模拟订单 HTTP 接口",
+          "duration_ms": 1.39,
+          "data": {
+            "path": "/api/mock/orders/ORD-1003",
+            "transport": "in_process_asgi",
+            "status_code": 200,
+            "order_id": "ORD-1003",
+            "paid_amount_cents": 19900
+          }
+        },
+        {
+          "event_id": "fd5ff6e52edb45149ee044327bd0d169",
+          "step": "retrieval",
+          "status": "ok",
+          "summary": "政策库真实检索",
+          "duration_ms": 1.243,
+          "data": {
+            "query": "已发货未签收",
+            "hits": [
+              {
+                "id": "P07",
+                "score": 1.0000000000000004,
+                "matched_field": "title"
+              },
+              {
+                "id": "P09",
+                "score": 0.01974561070825194,
+                "matched_field": "content"
+              },
+              {
+                "id": "P01",
+                "score": 0.015809127854335813,
+                "matched_field": "content"
+              }
+            ],
+            "threshold": 0.6
+          }
+        },
+        {
+          "event_id": "874137525b1244a79de2773665cf7b4d",
+          "step": "generation",
+          "status": "ok",
+          "summary": "证据引用已校验；业务文本由服务端呈现",
+          "duration_ms": 0.024,
+          "data": {
+            "mode": "offline",
+            "policy_ids": [
+              "P07"
+            ]
+          }
+        },
+        {
+          "event_id": "dd1591b3bf584425a9e0f0862a4560ed",
+          "step": "action",
+          "status": "ok",
+          "summary": "订单 ORD-1003 已发货、未签收。[P07] 已发货未签收可申请拦截或拒收，拦截成功后退款；拒收运费视原因而定。不承诺拦截一定成功。",
+          "duration_ms": 2.744,
+          "data": {
+            "action": "answer",
+            "reason_code": "evidence_answer"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  },
+  {
+    "scenario": "no_policy",
+    "input": "退货能不能上门取件？",
+    "output": {
+      "session_id": "9e5107260cbb4974a04c19cc7d3099f6",
+      "action": "clarify",
+      "message": "请提供订单号，并说明退货原因。",
+      "business_answer": null,
+      "policy_ids": [],
+      "retrieval_score": null,
+      "reason_code": "missing_order_id",
+      "missing_fields": [
+        "order_id",
+        "reason"
+      ],
+      "handoff_available": false,
+      "handoff_id": null,
+      "trace_id": "b57312b272ae4c13ad2ebffdd9721dc8",
+      "order": null,
+      "policy_cards": [],
+      "trace_events": [
+        {
+          "event_id": "7186d0d5e84b4ce89873c26462cffd49",
+          "step": "intent",
+          "status": "ok",
+          "summary": "识别意图与明确槽位",
+          "duration_ms": 0.027,
+          "data": {
+            "kind": "return",
+            "order_id": null,
+            "reason": null,
+            "topic": null,
+            "ambiguous": false
+          }
+        },
+        {
+          "event_id": "f39a70f8b3114430ac1be9f8cd82bd9a",
+          "step": "slots",
+          "status": "ok",
+          "summary": "缺少订单号，未执行订单查询或政策检索",
+          "duration_ms": 0.041,
+          "data": {
+            "missing": [
+              "order_id"
+            ]
+          }
+        },
+        {
+          "event_id": "468bf7941a334ce9bb3d81ce434f49e3",
+          "step": "action",
+          "status": "ok",
+          "summary": "请提供订单号，并说明退货原因。",
+          "duration_ms": 0.047,
+          "data": {
+            "action": "clarify",
+            "reason_code": "missing_order_id"
+          }
+        }
+      ],
+      "mode": "offline",
+      "development_stage": 2
+    }
+  }
+]
